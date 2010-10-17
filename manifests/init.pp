@@ -3,11 +3,17 @@ import "*.pp"
 class loginrecords {
 
     # Default settings
+    if $disable_btmp == '' {
+        $disable_btmp = true
+    }
     if $disable_faillog == '' {
         $disable_faillog = true
     }
     if $disable_lastlog == '' {
         $disable_lastlog = true
+    }
+    if $disable_wtmp == '' {
+        $disable_wtmp = true
     }
 
     # Include main class
