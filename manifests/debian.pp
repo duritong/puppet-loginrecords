@@ -3,6 +3,7 @@ class loginrecords::debian inherits loginrecords::base {
     $pam_login_file  = '/etc/pam.d/login'
     $login_defs_file = '/etc/login.defs'
     $btmp_file       = '/var/log/btmp'
+    $utmp_file       = '/var/run/utmp'
     $wtmp_file       = '/var/log/wtmp'
 
     if $disable_btmp {
@@ -21,6 +22,13 @@ class loginrecords::debian inherits loginrecords::base {
 
     if $disable_lastlog {
         include loginrecords::lastlog::disable
+    }
+
+    if $disable_utmp {
+        include loginrecords::utmp::disable
+    }
+    else {
+        include loginrecords::utmp::enable
     }
 
     if $disable_wtmp {

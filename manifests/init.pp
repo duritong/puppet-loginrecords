@@ -12,6 +12,9 @@ class loginrecords {
     if $disable_lastlog == '' {
         $disable_lastlog = true
     }
+    if $disable_utmp == '' {
+        $disable_utmp = true
+    }
     if $disable_wtmp == '' {
         $disable_wtmp = true
     }

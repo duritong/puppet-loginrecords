@@ -16,10 +16,12 @@ Dependencies
 Configuration
 =============
 
-$disable_btmp, $disable_wtmp
-----------------------------
+$disable_btmp, $disable_utmp, $disable_wtmp
+-------------------------------------------
 
-Default: /var/log/btmp and /var/log/wtmp are ensured to be absent.
+Default: /var/log/btmp, /var/run/utmp and /var/log/wtmp are ensured to
+be absent.
+
 These variables, when set to a false, non-empty value, have these
 files created and their logging enabled again.
 
