@@ -1,5 +1,6 @@
 class loginrecords::debian inherits loginrecords::base {
 
+    $pam_login_file  = '/etc/pam.d/login'
     $login_defs_file = '/etc/login.defs'
 
     if $disable_faillog {
@@ -7,6 +8,10 @@ class loginrecords::debian inherits loginrecords::base {
     }
     else {
         include loginrecords::faillog::enable
+    }
+
+    if $disable_lastlog {
+        include loginrecords::lastlog::disable
     }
 
 }

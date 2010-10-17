@@ -6,6 +6,9 @@ class loginrecords {
     if $disable_faillog == '' {
         $disable_faillog = true
     }
+    if $disable_lastlog == '' {
+        $disable_lastlog = true
+    }
 
     # Include main class
     case $kernel {

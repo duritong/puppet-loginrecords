@@ -22,6 +22,12 @@ $disable_faillog
 Default: faillog is disabled.
 When set to false, faillog is enabled.
 
+$disable_lastlog
+----------------
+
+Default: lastlog is disabled.
+When set to a false, non-empty value, lastlog is not changed.
+
 Copyright
 =========
 
