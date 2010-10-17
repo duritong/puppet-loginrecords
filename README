@@ -1,0 +1,33 @@
+Puppet module to manage login records.
+
+E.g. disable successful and failed login records.
+
+All functionality is currently only available on Debian GNU/Linux.
+Bits should be made available for other operating systems after
+checking they are configured the same way.
+
+Defaults to disable all supported login records.
+
+Dependencies
+============
+
+- the common module: git://labs.riseup.net/shared-common
+
+Configuration
+=============
+
+$enable_faillog
+---------------
+
+Default: faillog is disabled.
+When set to a true value, faillog is enabled.
+
+Copyright
+=========
+
+Copyright (c) 2010 intrigeri <intrigeri@boum.org>
+
+Licence
+=======
+
+GPL-3+
