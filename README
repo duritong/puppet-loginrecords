@@ -16,11 +16,11 @@ Dependencies
 Configuration
 =============
 
-$enable_faillog
----------------
+$disable_faillog
+----------------
 
 Default: faillog is disabled.
-When set to a true value, faillog is enabled.
+When set to false, faillog is enabled.
 
 Copyright
 =========

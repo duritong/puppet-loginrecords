@@ -3,10 +3,11 @@ import "*.pp"
 class loginrecords {
 
     # Default settings
-    if $enable_faillog == '' {
-        $enable_faillog = false
+    if $disable_faillog == '' {
+        $disable_faillog = true
     }
 
+    # Include main class
     case $kernel {
         "Linux": {
             case  $operatingsystem {
