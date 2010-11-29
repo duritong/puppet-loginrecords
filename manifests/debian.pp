@@ -8,15 +8,13 @@ class loginrecords::debian inherits loginrecords::base {
 
     if $disable_btmp {
         include loginrecords::btmp::disable
-    }
-    else {
+    } else {
         include loginrecords::btmp::enable
     }
 
     if $disable_faillog {
         include loginrecords::faillog::disable
-    }
-    else {
+    } else {
         include loginrecords::faillog::enable
     }
 
@@ -26,15 +24,13 @@ class loginrecords::debian inherits loginrecords::base {
 
     if $disable_utmp {
         include loginrecords::utmp::disable
-    }
-    else {
+    } else {
         include loginrecords::utmp::enable
     }
 
     if $disable_wtmp {
         include loginrecords::wtmp::disable
-    }
-    else {
+    } else {
         include loginrecords::wtmp::enable
     }
 
