@@ -16,6 +16,10 @@ Dependencies
 Configuration
 =============
 
+You can set the following parameters for the loginrecords class.
+If you just include the class loginrecords this will disable all
+loginlogs.
+
 $disable_btmp, $disable_utmp, $disable_wtmp
 -------------------------------------------
 
