@@ -1,12 +1,9 @@
-class loginrecords::faillog::disable {
-    replace { 'loginrecords-faillog-disable':
-        file        => $login_defs_file,
-        pattern     => '^FAILLOG_ENAB[[:space:]]+yes$',
-        replacement => 'FAILLOG_ENAB		no',
-    }
-    line { 'loginrecords-faillog-disable':
-        file    => $login_defs_file,
-        line    => 'FAILLOG_ENAB		no',
-        require => Replace['loginrecords-faillog-disable'],
-    }
+class loginrecords::faillog::disable inherits loginrecords::faillog::enable{
+  Replace['loginrecords-faillog']{
+    pattern   => '^FAILLOG_ENAB[[:space:]]+yes$',
+    replacement => 'FAILLOG_ENAB		no',
+  }
+  Line['loginrecords-faillog']{
+    line  => 'FAILLOG_ENAB		no',
+  }
 }

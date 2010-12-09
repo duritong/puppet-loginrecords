@@ -1,5 +1,8 @@
-class loginrecords::wtmp::enable {
-    file { "$wtmp_file":
-        ensure => 'present', mode => 664, owner => 'root', group => 'utmp',
-    }
+class loginrecords::wtmp::enable(
+  $wtmp_file = '/var/log/wtmp'
+){
+  file{$wtmp_file:
+    ensure => 'present',
+    owner => 'root', group => 'utmp', mode => 664;
+  }
 }

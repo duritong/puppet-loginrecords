@@ -1,3 +1,5 @@
-class loginrecords::wtmp::disable {
-    file { "$wtmp_file": ensure => 'absent' }
+class loginrecords::wtmp::disable inherits loginrecords::wtmp::enable {
+  File[$wtmp_filer]{
+    ensure => 'absent'
+  }
 }
