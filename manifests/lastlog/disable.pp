@@ -5,5 +5,6 @@ class loginrecords::lastlog::disable inherits loginrecords::lastlog::enable {
   }
   File['/var/log/lastlog']{
     ensure => absent,
+    backup => false,
   }
 }
