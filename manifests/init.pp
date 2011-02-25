@@ -3,7 +3,8 @@ class loginrecords(
     $disable_faillog = true,
     $disable_lastlog = true,
     $protect_utmp = true,
-    $disable_wtmp = true
+    $disable_wtmp = true,
+    $ramdisk_on_var_run = true
 ){
     # Include main class
     case $kernel {

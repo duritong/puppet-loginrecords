@@ -47,6 +47,18 @@ $disable_lastlog
 Default: lastlog is disabled.
 When set to a false, non-empty value, lastlog is not changed.
 
+$ramdisk_on_var_run
+-------------------
+
+Default: have the initscripts mount a ramdisk on /var/run.
+When set to a false, non-empty value, the mounting of a ramdisk on
+/var/run is disabled.
+
+Please note that the changes only take effect on reboot. When enabling
+this feature, you probably want to get rid of any file previously
+stored on the files (such as utmp) stored in the non-ramdisk
+underlying /var/run directory.
+
 Copyright
 =========
 

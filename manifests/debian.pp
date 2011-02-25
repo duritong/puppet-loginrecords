@@ -30,4 +30,10 @@ class loginrecords::debian inherits loginrecords::base {
     class{'loginrecords::wtmp::enable': }
   }
 
+  if $loginrecords::ramdisk_on_var_run {
+    class{'loginrecords::ramrun::enable': }
+  } else {
+    class{'loginrecords::ramrun::disable': }
+  }
+
 }
