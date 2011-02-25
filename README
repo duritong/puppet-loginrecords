@@ -20,14 +20,20 @@ You can set the following parameters for the loginrecords class.
 If you just include the class loginrecords this will disable all
 loginlogs.
 
-$disable_btmp, $disable_utmp, $disable_wtmp
--------------------------------------------
+$disable_btmp, $disable_wtmp
+----------------------------
 
-Default: /var/log/btmp, /var/run/utmp and /var/log/wtmp are ensured to
-be absent.
+Default: /var/log/btmp and /var/log/wtmp are ensured to be absent.
 
 These variables, when set to a false, non-empty value, have these
 files created and their logging enabled again.
+
+$protect_utmp
+-------------
+
+Default: /var/run/utmp is ensured to be present, but chmod'ed 660.
+When set to a false, non-empty value, /var/run/utmp is ensured to be
+present, and chmod'ed 664.
 
 $disable_faillog
 ----------------
