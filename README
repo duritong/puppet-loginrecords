@@ -21,23 +21,19 @@ If you just include the class loginrecords this will disable all
 loginlogs.
 
 $disable_btmp, $disable_wtmp
----------------------------
+----------------------------
 
 Default: /var/log/btmp and /var/log/wtmp are ensured to be absent.
 
 These variables, when set to a false, non-empty value, have these
 files created and their logging enabled again.
 
-$disable_utmp
+$protect_utmp
 -------------
 
-Default: /var/run/utmp is not removed.
-
-WARNING: Removing utmp removes necessary information for binaries such
-as runlevel. This might break other scripts that are relaying on the
-output of this binary or other scripts depending on their output. For
-example it is known that puppet will not anymore be able to idempodently
-manage runlevels. -> https://projects.puppetlabs.com/issues/5409
+Default: /var/run/utmp is ensured to be present, but chmod'ed 660.
+When set to a false, non-empty value, /var/run/utmp is ensured to be
+present, and chmod'ed 664.
 
 $disable_faillog
 ----------------
@@ -50,6 +46,18 @@ $disable_lastlog
 
 Default: lastlog is disabled.
 When set to a false, non-empty value, lastlog is not changed.
+
+$ramdisk_on_var_run
+-------------------
+
+Default: have the initscripts mount a ramdisk on /var/run.
+When set to a false, non-empty value, the mounting of a ramdisk on
+/var/run is disabled.
+
+Please note that the changes only take effect on reboot. When enabling
+this feature, you probably want to get rid of any file previously
+stored on the files (such as utmp) stored in the non-ramdisk
+underlying /var/run directory.
 
 Copyright
 =========

@@ -18,16 +18,22 @@ class loginrecords::debian inherits loginrecords::base {
     class{'loginrecords::lastlog::enable': }
   }
 
-  if $loginrecords::disable_utmp {
-    class{'loginrecords::utmp::disable': }
+  if $loginrecords::protect_utmp {
+    class{'loginrecords::utmp::protect': }
   } else {
-    class{'loginrecords::utmp::enable': }
+    class{'loginrecords::utmp::unprotect': }
   }
 
   if $loginrecords::disable_wtmp {
     class{'loginrecords::wtmp::disable': }
   } else {
     class{'loginrecords::wtmp::enable': }
+  }
+
+  if $loginrecords::ramdisk_on_var_run {
+    class{'loginrecords::ramrun::enable': }
+  } else {
+    class{'loginrecords::ramrun::disable': }
   }
 
 }
