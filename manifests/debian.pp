@@ -33,7 +33,10 @@ class loginrecords::debian inherits loginrecords::base {
   if $loginrecords::ramdisk_on_var_run {
     class{'loginrecords::ramrun::enable': }
   } else {
-    class{'loginrecords::ramrun::disable': }
+    case $lsbdistrelease {
+      'lenny','squeeze': { class{'loginrecords::ramrun::disable': } }
+      default: { err("Disabling RAMRUN is not supported since Wheezy") }
+    }
   }
 
 }

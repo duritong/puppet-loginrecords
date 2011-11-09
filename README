@@ -12,6 +12,7 @@ Dependencies
 ============
 
 - the common module: git://labs.riseup.net/shared-common
+- the lsb module: git://labs.riseup.net/shared-lsb
 
 Configuration
 =============
@@ -53,6 +54,9 @@ $ramdisk_on_var_run
 Default: have the initscripts mount a ramdisk on /var/run.
 When set to a false, non-empty value, the mounting of a ramdisk on
 /var/run is disabled.
+
+This has no effect on Debian Wheezy or later: a ramdisk is always
+mounted on /run, regardless of this setting.
 
 Please note that the changes only take effect on reboot. When enabling
 this feature, you probably want to get rid of any file previously
