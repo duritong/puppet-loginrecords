@@ -11,8 +11,8 @@ Defaults to disable all supported login records.
 Dependencies
 ============
 
-- the common module: git://labs.riseup.net/shared-common
 - the lsb module: git://labs.riseup.net/shared-lsb
+- the stdlib module from puppetlabs: http://forge.puppetlabs.com/puppetlabs/stdlib
 
 Configuration
 =============

@@ -1,8 +1,11 @@
+# manage the btmp file
 class loginrecords::btmp::enable(
   $btmp_file = '/var/log/btmp'
 ){
-  file{$btmp_file:
-    ensure => 'present',
-    owner => 'root', group => 'utmp', mode => 660;
+  file{$loginrecords::btmp::enable::btmp_file:
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'utmp',
+    mode    => '0660';
   }
 }

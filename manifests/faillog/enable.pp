@@ -1,14 +1,10 @@
+# manage faillog logging
 class loginrecords::faillog::enable(
   $login_defs_file = '/etc/login.defs'
 ) {
-  replace{'loginrecords-faillog':
-    file    => $login_defs_file,
-    pattern   => '^FAILLOG_ENAB[[:space]]+no$',
-    replacement => 'FAILLOG_ENAB		yes',
-  }
-  line{'loginrecords-faillog':
-    file  => $login_defs_file,
-    line  => 'FAILLOG_ENAB		yes',
-    require => Replace['loginrecords-faillog'],
+  file_line{'loginrecords-faillog':
+    path  => $loginrecords::faillog::enable::login_defs_file,
+    match => '^FAILLOG_ENAB',
+    line  => "FAILLOG_ENAB\tyes",
   }
 }
