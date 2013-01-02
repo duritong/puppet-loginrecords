@@ -36,7 +36,7 @@ class loginrecords::debian inherits loginrecords::base {
   } else {
     case $lsbdistrelease {
       'lenny','squeeze': { class{'loginrecords::ramrun::disable': } }
-      default: { err("Disabling RAMRUN is not supported since Wheezy") }
+      default: { fail("Disabling RAMRUN is not supported since Wheezy") }
     }
   }
 
