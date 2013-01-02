@@ -1,3 +1,4 @@
+# how loginrecords are managed on debian
 class loginrecords::debian inherits loginrecords::base {
 
   if $loginrecords::disable_btmp {
