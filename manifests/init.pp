@@ -17,7 +17,7 @@ class loginrecords(
       }
     }
     default: {
-      err("Kernel ${::kernel} is not supported.")
+      fail("Kernel ${::kernel} is not supported.")
     }
   }
 }
