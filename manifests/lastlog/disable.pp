@@ -1,8 +1,8 @@
 # disable lastlog loggin of pam
 class loginrecords::lastlog::disable inherits loginrecords::lastlog::enable {
-  Replace['loginrecords-lastlog']{
-    pattern     => '^session[[:space:]]+optional[[:space:]]+pam_lastlog.so$',
-    replacement => '#session  optional   pam_lastlog.so',
+  File_line['loginrecords-lastlog']{
+    match => '^session[[:space:]]+optional[[:space:]]+pam_lastlog.so$',
+    line  => '#session  optional   pam_lastlog.so',
   }
   File['/var/log/lastlog']{
     ensure => absent,
