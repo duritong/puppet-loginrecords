@@ -4,7 +4,7 @@ class loginrecords::lastlog::enable(
 ){
   file_line{'loginrecords-lastlog':
     path        => $pam_login_file,
-    match       => '^#session[[:space:]]+optional[[:space:]]+pam_lastlog.so$',
+    match       => '^.*session[[:space:]]+optional[[:space:]]+pam_lastlog.so$',
     line => 'session  optional   pam_lastlog.so',
   }
   file{'/var/log/lastlog':
